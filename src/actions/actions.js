@@ -2,6 +2,7 @@ const ADD_TODO = 'ADD_TODO'
 const REMOVE_TODO = 'REMOVE_TODO'
 const RENEW_TODO = 'RENEW_TODO'
 const DELETE_TODO = 'DELETE_TODO'
+const FILTER = 'FILTER'
 const STATUS = {
     done: 'DONE',
     active: 'ACTIVE'
@@ -11,7 +12,7 @@ const DISPLAY = {
   done: STATUS.done,
   active: STATUS.active
 }
-export {ADD_TODO,REMOVE_TODO,RENEW_TODO,DELETE_TODO,STATUS,DISPLAY}
+export {ADD_TODO,REMOVE_TODO,RENEW_TODO,DELETE_TODO,STATUS,DISPLAY,FILTER}
 
 export function addTodo({id,time,content}){
   return{
@@ -37,6 +38,13 @@ export function reNew({id,time}){
     id,
     time,
     status: STATUS.active
+  }
+}
+
+export function filterTodos({display}){
+  return {
+    type: FILTER,
+    display
   }
 }
 

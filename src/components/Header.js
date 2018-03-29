@@ -1,5 +1,6 @@
 import React from 'react'
-
+import {addTodo} from '../actions/actions.js'
+import {connect} from 'react-redux'
 class Header extends React.Component{
   state = {
     inputVal:""
@@ -17,8 +18,14 @@ class Header extends React.Component{
 
   enterKey = (e)=>{
     if(e.keyCode === 13){
-
+      this.props.dispatch(addTodo({
+        time: new Date(),
+        id: Date.now(),
+        content: this.state.inputVal
+      }))
+      this.setState({inputVal:""})
     }
+
   }
   render(){
     return <div className = "header">
@@ -29,4 +36,6 @@ class Header extends React.Component{
     </div>
   }
 }
-export default Header;
+
+const mapStateToProps = (state,own)=>state
+export default connect(mapStateToProps)(Header)

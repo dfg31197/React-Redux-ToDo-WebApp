@@ -1,15 +1,37 @@
 import React from 'react'
+import {connect} from 'react-redux'
+import {filterTodos} from '../actions/actions.js'
 
 class Footer extends React.Component{
-
+changeFilter = (fil) =>{
+this.props.dispatch(filterTodos({display:fil}))
+}
   render(){
-    return <div>
+    const filters = [
+      {
+        filter: 'ALL',
+        text: 'Show All'
+      },
+      {
+        filter: 'ACTIVE',
+        text: 'Pending'
+      },
+      {
+        filter: 'DONE',
+        text: 'Completed'
+      }
+    ]
+    return (<div>
     <nav className="footer-nav">
-    <a className="waves-effect waves-light btn-large">Show All</a>
-    <a className="waves-effect waves-light btn-large">Completed</a>
-    <a className="waves-effect waves-light btn-large">Pending</a>
+    {filters.map((fil)=>{
+    return <button key={fil.filter} onClick={()=>{this.changeFilter(fil.filter)}} disabled={fil.filter === this.props.display} className="waves-effect waves-light btn-large">{fil.text}</button>
+    })}
     </nav>
-    </div>
+    </div>)
   }
 }
-export default Footer;
+
+const mapStateToProps = (state,own) =>{
+return {display: state.display}
+}
+export default connect(mapStateToProps)(Footer)
