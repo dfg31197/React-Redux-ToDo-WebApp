@@ -36,6 +36,7 @@ input{
   margin-top: 5px;
   overflow-x: hidden;
   overflow-y: scroll;
+  transition: all 0.5s;
   position: relative;
 }
 .to-do-checkBox{
@@ -58,12 +59,15 @@ input{
 }
 .to-do.strike{
 background-color: #000000aa;
-
+}
+.edit-text{
+  text-align: center;
+  border: none;
+  outline: none;
 }
 
 .to-do.strike span{
   text-decoration: line-through;
-  transition: 1s all;
 }
 .to-do-header{
 background-color: #77777666;

@@ -11,6 +11,7 @@ class Main extends React.Component{
       ? this.props.display === 'ALL'
       ? this.props.todo.map((todo)=>{
         return <Todo key={todo.id} id={todo.id} content={todo.content} time={todo.time} status = {todo.status}/>
+        
       })
       : this.props.todo.filter((todo)=> todo.status === this.props.display).map((todo)=>{
         return <Todo key={todo.id} id={todo.id} content={todo.content} status={todo.status} time={todo.time}/>

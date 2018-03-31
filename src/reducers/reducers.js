@@ -1,4 +1,4 @@
-import {ADD_TODO,REMOVE_TODO,RENEW_TODO,DELETE_TODO,STATUS,FILTER} from '../actions/actions.js'
+import {ADD_TODO,REMOVE_TODO,RENEW_TODO,DELETE_TODO,STATUS,FILTER,SET_STATUS,EDIT_TODO} from '../actions/actions.js'
 const initState = {
   todo:[
     {id: '12345',
@@ -67,7 +67,35 @@ const toDos = (state=initState,payload)=>{
       ...state,
       display: payload.display
     }
-    
+
+    case SET_STATUS:
+    return{
+      ...state,
+      todo : state.todo.map((td)=>{
+        if(td.id == id){
+          return{
+            ...td,
+            status
+          }
+        }
+        return td
+      })
+    }
+
+    case EDIT_TODO:
+    return{
+      ...state,
+      todo: state.todo.map((td)=>{
+        if(td.id == id){
+          return{
+            ...td,
+            content,
+            time
+          }
+        }
+        return td
+      })
+    }
 
     default:
     return state
