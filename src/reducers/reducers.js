@@ -48,21 +48,26 @@ const toDos = (state=initState,payload)=>{
     case ADD_TODO:
     return {
       ...state,
-      todo: [...state.todo,{
+      todo: [{
         id,
         time,
         status,
         content
-      }]
+      },
+      ...state.todo,
+    ]
     }
-    case REMOVE_TODO:
-    return {todo: state.todo.filter((a)=> a.id !== id)}
+    case DELETE_TODO:
+    return {...state,
+      todo: state.todo.filter((a)=> a.id !== id)
+    }
 
     case FILTER:
     return {
       ...state,
       display: payload.display
     }
+    
 
     default:
     return state

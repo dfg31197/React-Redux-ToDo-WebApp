@@ -1,34 +1,82 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
-  background-color: #ffeeff;
+  font-family: 'Quicksand';
+  background: url(http://hdqwalls.com/wallpapers/polygon-texture.jpg);
+  background-size: 100%;
   color: #999;
   text-shadow: 1px 1px black;
+}
+.to-do-container{
 }
 .butts{
   background-color: green;
 }
-
+input{
+  font-size: 4vh !important;
+  color: white !important;
+  padding: 10px !important;
+}
 .header{
+}
+.timer{
+  color: white;
+  font-size: 7vh;
   text-align: center;
 }
 .to-do{
-  height: 10vh;
+  height: 150px;
   color:white;
   text-align: center;
-  font-size: 20px;
-  border: 1px solid white;
+  background-color: rgba(200,10,10,0.1);
+  background-size: 100%;
+  border: 1px solid rgba(0,20,200,0.07);
+  font-size: 16px;
+  padding: 0 !important;
+  margin-top: 5px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  position: relative;
+}
+.to-do-checkBox{
+  float: left;
+  width: 10px;
+  height: 10px;
+}
+.to-do-edit,.to-do-delete{
+  width: 20px;
+  height: inherit;
+  background-color: red;
+  color: white;
+  float: right;
+  margin-left: 1vh;
+  cursor: pointer;
+  text-decoration: none !important;
+}
+.to-do-edit{
+  background-color: teal;
 }
 .to-do.strike{
-text-decoration: line-through;
-border: 1px solid green;
+background-color: #000000aa;
 
 }
-.footer-nav a{
-margin-left: 50px;
-}
 
+.to-do.strike span{
+  text-decoration: line-through;
+  transition: 1s all;
+}
+.to-do-header{
+background-color: #77777666;
+margin: 0;
+}
+.footer-nav{
+background-color: rgba(255,255,255,0.09);
+}
+.footer-nav button{
+  max-width: 33%;
+  max-height: 90%;
+  font-size: 2vh;
+}
 .to-do-container{
   min-height: 200px;
 }

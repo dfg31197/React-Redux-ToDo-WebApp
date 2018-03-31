@@ -17,10 +17,11 @@ class Header extends React.Component{
   }
 
   enterKey = (e)=>{
-    if(e.keyCode === 13){
+    if(e.keyCode === 13 && this.state.inputVal.length>0){
+      const time = `${new Date()}`.split(" ").filter((a,index)=> index == 0 || index == 4).join(", ")
       this.props.dispatch(addTodo({
-        time: new Date(),
-        id: Date.now(),
+        time,
+        id: `${Date.now()}`,
         content: this.state.inputVal
       }))
       this.setState({inputVal:""})
@@ -29,10 +30,7 @@ class Header extends React.Component{
   }
   render(){
     return <div className = "header">
-    <nav>
-    <input className="input-field" name="todo" onKeyDown={this.enterKey} onChange={this.handleInput} value={this.state.inputVal} />
-
-</nav>
+    <input placeholder="What needs to be done?" className="input-field" name="todo" onKeyDown={this.enterKey} onChange={this.handleInput} value={this.state.inputVal} />
     </div>
   }
 }

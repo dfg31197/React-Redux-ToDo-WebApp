@@ -31,7 +31,11 @@ export function completeTodo({id}){
     status: STATUS.done
   }
 }
-
+export function markActive({id}){
+  return{
+    type
+  }
+}
 export function reNew({id,time}){
   return {
     type: RENEW_TODO,

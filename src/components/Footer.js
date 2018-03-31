@@ -22,7 +22,7 @@ this.props.dispatch(filterTodos({display:fil}))
       }
     ]
     return (<div>
-    <nav className="footer-nav">
+    <nav className="footer-nav ">
     {filters.map((fil)=>{
     return <button key={fil.filter} onClick={()=>{this.changeFilter(fil.filter)}} disabled={fil.filter === this.props.display} className="waves-effect waves-light btn-large">{fil.text}</button>
     })}
