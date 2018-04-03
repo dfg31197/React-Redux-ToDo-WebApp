@@ -24,6 +24,8 @@ class Header extends React.Component{
         id: `${Date.now()}`,
         content: this.state.inputVal
       }))
+
+
       this.setState({inputVal:""})
     }
 

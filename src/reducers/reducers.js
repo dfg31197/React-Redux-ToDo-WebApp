@@ -1,4 +1,4 @@
-import {ADD_TODO,REMOVE_TODO,RENEW_TODO,DELETE_TODO,STATUS,FILTER,SET_STATUS,EDIT_TODO} from '../actions/actions.js'
+import {ADD_TODO,REMOVE_TODO,RENEW_TODO,DELETE_TODO,STATUS,FILTER,SET_STATUS,EDIT_TODO,SET_STATE} from '../actions/actions.js'
 const initState = {
   todo:[
     {id: '12345',
@@ -42,7 +42,7 @@ const initState = {
   display:'ALL'
 }
 
-const toDos = (state=initState,payload)=>{
+const toDos = (state={display:'ALL',todo:[]},payload)=>{
   const {id,time,status,content} = payload
   switch(payload.type){
     case ADD_TODO:
@@ -66,6 +66,12 @@ const toDos = (state=initState,payload)=>{
     return {
       ...state,
       display: payload.display
+    }
+
+    case SET_STATE:
+    return{
+      ...state,
+      todo: payload.state
     }
 
     case SET_STATUS:

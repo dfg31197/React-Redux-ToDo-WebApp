@@ -4,6 +4,7 @@ const RENEW_TODO = 'RENEW_TODO'
 const DELETE_TODO = 'DELETE_TODO'
 const EDIT_TODO = 'EDIT_TODO'
 const FILTER = 'FILTER'
+const SET_STATE = 'SET_STATE'
 const STATUS = {
     done: 'DONE',
     active: 'ACTIVE'
@@ -14,7 +15,14 @@ const DISPLAY = {
   done: STATUS.done,
   active: STATUS.active
 }
-export {ADD_TODO,EDIT_TODO,REMOVE_TODO,RENEW_TODO,DELETE_TODO,STATUS,DISPLAY,FILTER,SET_STATUS}
+export {ADD_TODO,EDIT_TODO,REMOVE_TODO,RENEW_TODO,DELETE_TODO,STATUS,DISPLAY,FILTER,SET_STATUS,SET_STATE}
+
+export function initializeState({state}){
+return{
+  type: SET_STATE,
+  state
+}
+}
 
 export function addTodo({id,time,content}){
   return{

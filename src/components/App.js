@@ -3,7 +3,12 @@ import Header from './Header'
 import Footer from './Footer'
 import Main from './Main'
 import Timer from './Timer'
+import {connect} from 'react-redux'
+
 class App extends Component {
+
+
+
   render() {
     return (
       <div className="container">
@@ -26,5 +31,7 @@ class App extends Component {
     );
   }
 }
-
-export default App;
+const matchStateToProps = (state)=>{
+  return {}
+}
+export default connect(matchStateToProps)(App);
